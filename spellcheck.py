@@ -14,6 +14,29 @@ def main():
     # Print first 50 values of each list to verify contents
     print(dictionary[0:50])
     print(aliceWords[0:50])
+    while True:
+      print('\nMenu')
+      print('1. Spell Check a Word (Linear Search) ')
+      print('2. Spell Check a Word (Binary Search) ')
+      print('3. Spell Check Alice In Wonderland (Linear Search) ')
+      print('4. Spell Check Alice In Wonderland (Binary Search)')
+      print('5. Exit')
+      choice = input("Enter your choice: ")
+
+      if choice == "1": 
+        searchLin(dictionary)
+      elif choice == "2":
+        searchBin(dictionary)
+      elif choice == "3":
+          print("a")
+      elif choice == "4":
+          print("a")
+      elif choice == "5":
+          print("Shutting Down")
+          break
+      else:
+          print("Not a valid Choice")
+
 
 
 # end main()
@@ -39,27 +62,26 @@ def binarySearch(arr, t):
             right = mid - 1
        
     return -1
-    
-arr = input("Which Array: ")
-print(arr)
 
-def searchLin():
+def searchLin(arr):
     tar = input("What Word: ")
     startTime = time.time()
     output = linearSearch(arr, tar)
     endTime = time.time()
     if output != -1:
-        print(f"time to find object {endTime-startTime} (s)")
+        print("Object Found ")
+        print(f"time to find object {endTime - startTime} (s)")
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
 
-def searchBin():
+def searchBin(arr):
     t = input("What Word: ")
     startTime = time.time()
     output = binarySearch(arr, t)
     endTime = time.time()
     if output != -1:
-        print(f"time to find object {endTime-startTime} (s)")
+        print("Object Found ")
+        print(f"time to find object {endTime - startTime} (s)")
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
 
@@ -76,21 +98,4 @@ def loadWordsFromFile(fileName):
 
 # Call main() to begin program
 main()
-
-while True:
-    print('\nMenu')
-    print('1. Linear Search')
-    print('2. Binary Search')
-    print('3. Exit')
-    choice = input("Enter your choice: ")
-
-    if choice == "1": 
-       searchLin()
-    elif choice == "2":
-       searchBin()
-    elif choice == "3":
-        print("Shutting Down")
-        break
-    else:
-        print("Not a valid Choice")
 
