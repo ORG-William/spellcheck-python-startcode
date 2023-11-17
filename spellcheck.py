@@ -6,6 +6,7 @@
 import re  # Needed for splitting text with a regular expression
 import time
 
+
 def main():
     # Load data files into lists
     dictionary = loadWordsFromFile("data-files/dictionary.txt")
@@ -15,37 +16,37 @@ def main():
     print(dictionary[0:50])
     print(aliceWords[0:50])
     while True:
-      print('\nMenu')
-      print('1. Spell Check a Word (Linear Search) ')
-      print('2. Spell Check a Word (Binary Search) ')
-      print('3. Spell Check Alice In Wonderland (Linear Search) ')
-      print('4. Spell Check Alice In Wonderland (Binary Search)')
-      print('5. Exit')
-      choice = input("Enter your choice: ")
+        print('\nMenu')
+        print('1. Spell Check a Word (Linear Search) ')
+        print('2. Spell Check a Word (Binary Search) ')
+        print('3. Spell Check Alice In Wonderland (Linear Search) ')
+        print('4. Spell Check Alice In Wonderland (Binary Search)')
+        print('5. Exit')
+        choice = input("Enter your choice: ")
 
-      if choice == "1": 
-        searchLin(dictionary)
-      elif choice == "2":
-        searchBin(dictionary)
-      elif choice == "3":
-          print("a")
-      elif choice == "4":
-          print("a")
-      elif choice == "5":
-          print("Shutting Down")
-          break
-      else:
-          print("Not a valid Choice")
-
+        if choice == "1":
+            searchLin(dictionary)
+        elif choice == "2":
+            searchBin(dictionary)
+        elif choice == "3":
+            linAlice(dictionary, aliceWords)
+        elif choice == "4":
+            binAlice(dictionary, aliceWords)
+        elif choice == "5":
+            print("Shutting Down")
+            break
+        else:
+            print("Not a valid Choice")
 
 
 # end main()
 def linearSearch(arr, tar):
 
-    for i in range (len(arr)):
+    for i in range(len(arr)):
         if arr[i] == tar:
             return i
     return -1
+
 
 def binarySearch(arr, t):
     left, right = 0, len(arr) - 1
@@ -53,15 +54,15 @@ def binarySearch(arr, t):
     while left <= right:
         mid = left + (right - left) // 2
 
-
         if arr[mid] == t:
             return mid
         elif arr[mid] < t:
             left = mid + 1
         else:
             right = mid - 1
-       
+
     return -1
+
 
 def searchLin(arr):
     tar = input("What Word: ")
@@ -74,6 +75,7 @@ def searchLin(arr):
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
 
+
 def searchBin(arr):
     t = input("What Word: ")
     startTime = time.time()
@@ -84,6 +86,30 @@ def searchBin(arr):
         print(f"time to find object {endTime - startTime} (s)")
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
+
+
+def linAlice(dict, alice):
+    count = 0
+    startTime = time.time()
+    for i in range(len(alice)):
+        t = linearSearch(dict, alice[i].lower())
+        if t == -1:
+            count += 1
+    endTime = time.time()
+    print(f"Not found:{count} ")
+    print(f"{endTime - startTime} (s)")
+
+def binAlice(dict, alice):
+    count = 0
+    startTime = time.time()
+    for i in range(len(alice)):
+        t = binarySearch(dict, alice[i].lower())
+        if t == -1:
+            count += 1
+    endTime = time.time()
+    print(f"Not found:{count} ")
+    print(f"{endTime - startTime} (s)")
+
 
 def loadWordsFromFile(fileName):
     # Read file as a string
@@ -98,4 +124,3 @@ def loadWordsFromFile(fileName):
 
 # Call main() to begin program
 main()
-
