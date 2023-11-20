@@ -70,7 +70,7 @@ def searchLin(arr):
     output = linearSearch(arr, tar)
     endTime = time.time()
     if output != -1:
-        print("Object Found ")
+        print(f"Object Found at pos: {output} ")
         print(f"time to find object {endTime - startTime} (s)")
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
@@ -82,7 +82,7 @@ def searchBin(arr):
     output = binarySearch(arr, t)
     endTime = time.time()
     if output != -1:
-        print("Object Found ")
+        print(f"Object Found at pos: {output} ")
         print(f"time to find object {endTime - startTime} (s)")
     else:
         print(f"Word not found at all: {endTime - startTime} (s)")
