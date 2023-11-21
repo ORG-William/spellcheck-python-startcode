@@ -17,9 +17,9 @@ def main():
     print(aliceWords[0:50])
     while True:
         print('\nMenu')
-        print('1. Spell Check a Word (Linear Search) ')
-        print('2. Spell Check a Word (Binary Search) ')
-        print('3. Spell Check Alice In Wonderland (Linear Search) ')
+        print('1. Spell Check a Word (Linear Search)')
+        print('2. Spell Check a Word (Binary Search)')
+        print('3. Spell Check Alice In Wonderland (Linear Search)')
         print('4. Spell Check Alice In Wonderland (Binary Search)')
         print('5. Exit')
         choice = input("Enter your choice: ")
